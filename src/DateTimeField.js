@@ -36,6 +36,7 @@ export default class DateTimeField extends Component {
     inputProps: PropTypes.object,
     inputFormat: PropTypes.string,
     defaultText: PropTypes.string,
+    placeholder: PropTypes.string,
     mode: PropTypes.oneOf([Constants.MODE_DATE, Constants.MODE_DATETIME, Constants.MODE_TIME]),
     minDate: PropTypes.object,
     maxDate: PropTypes.object,
@@ -356,8 +357,7 @@ export default class DateTimeField extends Component {
                   widgetStyle={this.state.widgetStyle}
             />
             <div className="input-group date" ref="datetimepicker">
-              <input type="text" className="form-control" onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
-              <span className="input-group-addon" onClick={this.onClick} onBlur={this.onBlur} ref="dtpbutton"><Glyphicon glyph={this.state.buttonIcon} /></span>
+              <input ref="dtpbutton" type="text" onClick={this.onClick} onBlur={this.onBlur} placeholder={this.props.placeholder}   className="form-control" onChange={this.onChange} value={this.state.inputValue} {...this.props.inputProps}/>
             </div>
           </div>
     );
